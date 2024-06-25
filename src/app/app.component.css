@@ -1,0 +1,18 @@
+.spinner {
+    position: absolute;
+    height: 100% !important;
+    width: 100% !important;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.blur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    backdrop-filter: blur(1px);
+    z-index: 1;
+}

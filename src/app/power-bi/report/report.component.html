@@ -1,0 +1,16 @@
+<!-- <powerbi-report [embedConfig]= {{ type: "report" , id: undefined , embedUrl: undefined, accessToken: undefined ,
+    tokenType: models.TokenType.Embed, settings: { panes: { filters: { expanded: false, visible: false } }, background:
+    models.BackgroundType.Transparent, } }} [cssClassName]="reportClass" [phasedEmbedding]="false" [eventHandlers]={ new
+    Map([ ['loaded', ()=> console.log('Report loaded');],
+    ['rendered', () => console.log('Report rendered');],
+    ['error', (event) => console.log(event.detail);]
+    ])}>
+</powerbi-report> -->
+<iframe title="sales report" width="1000" height="500"
+    src="https://app.powerbi.com/view?r=eyJrIjoiZGM5MjExYWUtZTU1Yi00OTE0LWFlODMtMjUyYWZiMDM3MjY1IiwidCI6IjMwMzM2NDJkLTZhZGYtNGFjNi1iYmM1LTUxMWI0MmJjNWYwMCJ9"
+    frameborder="0" allowFullScreen="true"></iframe>
+
+<!-- <div>
+    <powerbi-report [embedConfig]="reportConfig" [cssClassName]="'report-container'" [phaseEmbedding]="false"
+        [eventHandlers]="eventHandlersMap" style="width: 600px; height: 300px;"></powerbi-report>
+</div> -->

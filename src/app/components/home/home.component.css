@@ -1,0 +1,88 @@
+.card-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.card {
+    width: calc(50% - 10px);
+    /* Adjust the width to 50% minus the margin */
+    margin: 5px;
+    /* Add some space between cards */
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card.resizing {
+    z-index: 10000;
+    /* Higher z-index when resizing */
+    opacity: 1;
+}
+
+.card.hidden {
+    opacity: 0.5;
+    /* Reduced opacity for hidden state */
+}
+
+.card.change-index {
+    z-index: -1;
+}
+
+.card:nth-child(1) {
+    top: 4;
+    left: 0;
+}
+
+.card:nth-child(2) {
+    top: 4;
+    left: 50%;
+    /* Adjust position for the second card */
+}
+
+.card:nth-child(3) {
+    top: 50%;
+    /* Adjust position for the third card */
+    left: 0;
+}
+
+.card:nth-child(4) {
+    top: 50%;
+    /* Adjust position for the fourth card */
+    left: 50%;
+    /* Adjust position for the fourth card */
+}
+
+.resize-handle {
+    width: 10px;
+    height: 10px;
+    background-color: gray;
+    position: absolute;
+}
+
+.top-left {
+    top: -5px;
+    left: -5px;
+    cursor: nwse-resize;
+}
+
+.top-right {
+    top: -5px;
+    right: -5px;
+    cursor: nesw-resize;
+}
+
+.bottom-left {
+    bottom: -5px;
+    left: -5px;
+    cursor: nesw-resize;
+}
+
+.bottom-right {
+    bottom: -5px;
+    right: -5px;
+    cursor: nwse-resize;
+}

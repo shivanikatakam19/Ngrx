@@ -1,0 +1,23 @@
+<div class="row mt-3">
+    <div class="col-md-12">
+        <h4>Add Post</h4>
+        <hr class="my-3">
+        <form [formGroup]="addPostForm">
+            <div class="mb-3">
+                <label>Title</label>
+                <input type="text" class="form-control" formControlName="title">
+                <span *ngIf="!addPostForm.value.title && addPostForm.get('title')?.touched">Title is required</span>
+            </div>
+            <div class="mb-3">
+                <label>Description</label>
+                <textarea type="text" class="form-control" formControlName="description"></textarea>
+                <span *ngIf="!addPostForm.value.title && addPostForm.get('description')?.touched">Description is
+                    required</span>
+            </div>
+            <div class="text-center">
+                <button class="btn btn-primary" type="submit" (click)="onAddPost()" [disabled]="!addPostForm.valid">Add
+                    Post</button>
+            </div>
+        </form>
+    </div>
+</div>
