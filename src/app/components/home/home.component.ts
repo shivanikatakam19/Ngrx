@@ -24,7 +24,6 @@ export class HomeComponent {
     if (this.content) {
       const html = this.htmlContentService.getInnerHTML(this.content.nativeElement);
       const dimensions = this.htmlContentService.getDimensionsInPercentages(this.content.nativeElement);
-      console.log('HTML Content:', html);
       // You can now use the HTML content and dimensions as needed
     }
   }

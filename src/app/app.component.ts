@@ -23,6 +23,10 @@ export class AppComponent implements OnInit {
     this.router.navigateByUrl('auth/login')
     this.showLoader = this.store.select(getLoading)
     this.showError = this.store.select(getError)
-    console.log(this.showLoader)
+  }
+
+  ngOnDestroy(): void {
+    //Called once, before the instance is destroyed.
+    //Add 'implements OnDestroy' to the class.
   }
 }

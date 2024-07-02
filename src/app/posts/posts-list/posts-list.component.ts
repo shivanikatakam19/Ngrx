@@ -3,7 +3,8 @@ import { Store } from '@ngrx/store';
 import { getPosts } from '../state/post.selectors';
 import { AppState } from '../../app.state';
 import { Post } from '../state/posts.state';
-import { deletePost } from '../state/posts.action';
+import { deletePost, loadPosts } from '../state/posts.action';
+import { setLoadingSpinner } from '../../store/shared.action';
 
 @Component({
   selector: 'app-posts-list',
@@ -22,9 +23,12 @@ export class PostsListComponent {
     this.store.select(getPosts).subscribe((posts: any) => {
       this.posts = posts
     })
+    this.store.dispatch(setLoadingSpinner({ status: true }))
+    this.store.dispatch(loadPosts())
   }
 
   onDeletePost(post: Post) {
-    this.store.dispatch(deletePost({ post }))
+    let id: any = post.id
+    this.store.dispatch(deletePost({ id }))
   }
 }

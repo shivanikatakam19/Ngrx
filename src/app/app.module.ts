@@ -18,11 +18,13 @@ import { AddPostComponent } from './posts/add-post/add-post.component';
 import { EditPostComponent } from './posts/edit-post/edit-post.component';
 import { MatIconModule } from '@angular/material/icon';
 import { EffectsModule } from '@ngrx/effects';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { LoaderComponent } from './components/loader/loader.component';
 import { PowerBIEmbedModule } from 'powerbi-client-angular';
-import { ReportComponent } from './power-bi/report/report.component';
+import { ReportComponent } from './components/power-bi/report/report.component';
+import { PostsEffects } from './posts/state/posts.effects';
+import { AuthTokenInterceptor } from '../interceptors/auth.interceptor';
 
 @NgModule({
     declarations: [
@@ -47,7 +49,7 @@ import { ReportComponent } from './power-bi/report/report.component';
         StoreModule.forRoot(AppReducer),
         AppRoutingModule,
         MatIconModule,
-        EffectsModule.forRoot([]),
+        EffectsModule.forRoot([PostsEffects]),
         HttpClientModule,
         StoreDevtoolsModule.instrument({
             maxAge: 10,
@@ -55,7 +57,7 @@ import { ReportComponent } from './power-bi/report/report.component';
         }),
         PowerBIEmbedModule
     ],
-    providers: [],
+    providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthTokenInterceptor, multi: true }],
     bootstrap: [AppComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

@@ -3,7 +3,7 @@ export interface AuthResponse {
     "email": string;
     "displayName": string;
     "idToken": string;
-    "registered": boolean;
+    "registered"?: boolean;
     "refreshToken": string;
     "expiresIn": string;
     "kind": string;

@@ -1,7 +1,7 @@
 import { createReducer, on } from "@ngrx/store"
 import { setErrorMessage, setLoadingSpinner } from "./shared.action"
 import { initialSharedState } from "./shared.state";
-import { loginSuccess } from "../auth/state/auth.actions";
+import { loginSuccess, signupSuccess } from "../auth/state/auth.actions";
 
 const _sharedReducer = createReducer(initialSharedState,
     on(setLoadingSpinner, (state: any, action: any) => {
@@ -21,7 +21,14 @@ const _sharedReducer = createReducer(initialSharedState,
             ...state,
             errorMessage: ''
         }
+    }),
+    on(signupSuccess, (state: any) => {
+        return {
+            ...state,
+            errorMessage: ''
+        }
     })
+
 )
 
 export function sharedReducer(state: any, action: any) {

@@ -21,9 +21,12 @@ export class LoginComponent {
   })
 
   onLoginSubmit() {
-    const email: any = this.loginForm.value.email
-    const password: any = this.loginForm.value.password
-    this.store.dispatch(setLoadingSpinner({ status: true }))
-    this.store.dispatch(loginStart({ email: email, password: password }))
+    if (this.loginForm.valid) {
+      const email: any = this.loginForm.value.email
+      const password: any = this.loginForm.value.password
+      this.store.dispatch(setLoadingSpinner({ status: true }))
+      this.store.dispatch(loginStart({ email: email, password: password }))
+    } else
+      return;
   }
 }
