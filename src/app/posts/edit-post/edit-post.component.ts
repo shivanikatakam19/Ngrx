@@ -36,11 +36,13 @@ export class EditPostComponent implements OnInit {
   }
 
   onEditPost() {
+    this.editPostForm.markAllAsTouched();
     const post: Post = {
       id: this.editPostForm.value.id,
       title: this.editPostForm.value.title!,
       description: this.editPostForm.value.description!
     }
-    this.store.dispatch(updatePost({ post }));
+    if (this.editPostForm.valid)
+      this.store.dispatch(updatePost({ post }));
   }
 }

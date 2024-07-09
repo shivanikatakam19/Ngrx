@@ -7,6 +7,7 @@ export const LOGIN_FAILURE = '[auth page] login failure';
 export const SIGNUP_START = '[auth page] signup start';
 export const SIGNUP_SUCCESS = '[auth page] signup success';
 export const SIGNUP_FAILURE = '[auth page] signup failure';
+export const LOGOUT = '[auth page] logout';
 
 export const loginStart = createAction(
     LOGIN_START,
@@ -27,3 +28,4 @@ export const signupSuccess = createAction(
 export const signupFailure = createAction(
     SIGNUP_FAILURE
 )
+export const logout = createAction(LOGOUT)

@@ -12,7 +12,6 @@ export class ResizableDirective {
   private currentHandle: HTMLElement | null = null;
 
   constructor(private el: ElementRef, private renderer: Renderer2) {
-    this.renderer.setStyle(this.el.nativeElement, 'position', 'absolute');
     this.createHandles();
   }
 
@@ -22,7 +21,6 @@ export class ResizableDirective {
       const div = this.renderer.createElement('div');
       this.renderer.addClass(div, 'resize-handle');
       this.renderer.addClass(div, handle);
-      this.renderer.setStyle(div, 'position', 'absolute');
       this.renderer.setStyle(div, 'width', '10px');
       this.renderer.setStyle(div, 'height', '10px');
       this.renderer.setStyle(div, 'background', 'gray');
@@ -71,11 +69,11 @@ export class ResizableDirective {
     this.renderer.addClass(this.el.nativeElement, 'resizing');
 
     const allCards = document.querySelectorAll('.card');
-    allCards.forEach(card => {
-      if (card !== this.el.nativeElement) {
-        this.renderer.addClass(card, 'hidden');
-      }
-    });
+    // allCards.forEach(card => {
+    //   if (card !== this.el.nativeElement) {
+    //     this.renderer.addClass(card, 'hidden');
+    //   }
+    // });
 
     event.preventDefault(); // Prevent text selection
   }
@@ -101,13 +99,13 @@ export class ResizableDirective {
     if (this.currentHandle.classList.contains('top-left')) {
       this.renderer.setStyle(this.el.nativeElement, 'width', `${this.startWidth - diffX}px`);
       this.renderer.setStyle(this.el.nativeElement, 'height', `${this.startHeight - diffY}px`);
-      this.renderer.setStyle(this.el.nativeElement, 'left', `${clientX}px`);
-      this.renderer.setStyle(this.el.nativeElement, 'top', `${clientY}px`);
+      // this.renderer.setStyle(this.el.nativeElement, 'left', `${clientX}px`);
+      // this.renderer.setStyle(this.el.nativeElement, 'top', `${clientY}px`);
     } else if (this.currentHandle.classList.contains('top-right')) {
       this.renderer.setStyle(this.el.nativeElement, 'width', `${this.startWidth + diffX}px`);
       this.renderer.setStyle(this.el.nativeElement, 'height', `${this.startHeight - diffY}px`);
-      this.renderer.setStyle(this.el.nativeElement, 'right', `${clientX}px`);
-      this.renderer.setStyle(this.el.nativeElement, 'top', `${clientY}px`);
+      // this.renderer.setStyle(this.el.nativeElement, 'right', `${clientX}px`);
+      // this.renderer.setStyle(this.el.nativeElement, 'top', `${clientY}px`);
     } else if (this.currentHandle.classList.contains('bottom-left')) {
       this.renderer.setStyle(this.el.nativeElement, 'width', `${this.startWidth - diffX}px`);
       this.renderer.setStyle(this.el.nativeElement, 'height', `${this.startHeight + diffY}px`);
@@ -124,14 +122,14 @@ export class ResizableDirective {
       this.resizing = false;
       this.renderer.removeClass(this.el.nativeElement, 'resizing');
 
-      const allCards = document.querySelectorAll('.card');
-      allCards.forEach(card => {
-        if (card != this.el.nativeElement)
-          this.renderer.addClass(card, 'change-index')
-        else
-          this.renderer.removeClass(card, 'change-index')
-        this.renderer.removeClass(card, 'hidden');
-      });
+      // const allCards = document.querySelectorAll('.card');
+      // allCards.forEach(card => {
+      //   if (card != this.el.nativeElement)
+      //     this.renderer.addClass(card, 'change-index')
+      //   else
+      //     this.renderer.removeClass(card, 'change-index')
+      //   this.renderer.removeClass(card, 'hidden');
+      // });
     }
     this.currentHandle = null;
   }

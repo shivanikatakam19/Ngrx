@@ -1,0 +1,81 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 10px;
+    padding: 10px;
+    height: 92vh;
+    border: 1px solid black;
+}
+
+.grid-container>div {
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+    height: 100%;
+    border: 1px solid red;
+}
+
+.grid-container>div>iframe {
+    height: 100% !important;
+    width: 100% !important;
+}
+
+.item1 {
+    grid-area: 1 / 1 / span 1 / span 2 !important;
+}
+
+.item2 {
+    grid-area: 1 / 3 / span 1 / span 2 !important;
+}
+
+.item3 {
+    grid-area: 2 / 1 / span 1 / span 2 !important;
+}
+
+.item4 {
+    grid-area: 2 / 3 / span 1 / span 2 !important;
+}
+
+.card.resizing {
+    z-index: 11;
+    opacity: 1;
+}
+
+.card.hidden {
+    opacity: 0.5;
+}
+
+.card.change-index {
+    z-index: 10;
+}
+
+.resize-handle {
+    width: 10px;
+    height: 10px;
+    background-color: gray;
+    position: absolute;
+}
+
+.top-left {
+    top: -5px;
+    left: -5px;
+    cursor: nwse-resize;
+}
+
+.top-right {
+    top: -5px;
+    right: -5px;
+    cursor: nesw-resize;
+}
+
+.bottom-left {
+    bottom: -5px;
+    left: -5px;
+    cursor: nesw-resize;
+}
+
+.bottom-right {
+    bottom: -5px;
+    right: -5px;
+    cursor: nwse-resize;
+}

@@ -15,7 +15,7 @@
             <li class="nav-item" *ngIf="user">
                 <a class="nav-link" routerLink='/posts'>Posts</a>
             </li>
-            <li class="nav-item" *ngIf="user">
+            <li class="nav-item" *ngIf="user" (click)="logout()">
                 <a class="nav-link" routerLink='#'>Logout</a>
             </li>
             <li class="nav-item" *ngIf="!user">

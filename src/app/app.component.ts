@@ -1,5 +1,4 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AppState } from './app.state';
 import { Observable } from 'rxjs';
@@ -17,10 +16,10 @@ export class AppComponent implements OnInit {
   showLoader!: Observable<boolean>
   showError!: Observable<string>
 
-  constructor(private router: Router, private store: Store<AppState>) { }
+  constructor(private store: Store<AppState>) { }
 
   ngOnInit(): void {
-    this.router.navigateByUrl('auth/login')
+    // this.router.navigateByUrl('auth/login')
     this.showLoader = this.store.select(getLoading)
     this.showError = this.store.select(getError)
   }
